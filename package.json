@@ -1,15 +1,16 @@
 {
   "name": "cli-prayer-times",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A command-line tool for displaying prayer times.",
   "module": "index.ts",
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "build": "bun build ./index.ts --target node --outdir ./dist"
+    "build": "bun build ./index.ts --target node --outdir ./dist",
+    "prepare": "npm run build"
   },
   "bin": {
-    "prayers": "dist/index.js"
+    "prayers": "./dist/index.js"
   },
   "devDependencies": {
     "@types/bun": "latest",
@@ -19,6 +20,8 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "chalk": "^5.4.0",
+    "cli-table3": "^0.6.5",
     "commander": "^12.1.0",
     "inquirer": "^12.2.0",
     "zero-deps-prayer-times": "^1.0.2"
