@@ -1,4 +1,4 @@
-#! /usr/bin/env bun
+#! /usr/bin/env node
 
 import chalk from "chalk";
 import Table from "cli-table3";
