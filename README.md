@@ -20,10 +20,9 @@ prayers
 
 ```bash
 prayers -c
-
-## you will be prompted to enter a city name,
-## and the prayer times for that city will be displaye
 ```
+
+You will be prompted to enter a city name, and the prayer times for that city will be displayed
 
 ## Screenshots
 
