@@ -1,6 +1,6 @@
 {
   "name": "cli-prayer-times",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A simple command-line tool to display daily prayer times based on your location.",
   "module": "index.ts",
   "main": "dist/index.js",
