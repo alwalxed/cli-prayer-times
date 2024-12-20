@@ -1,6 +1,6 @@
 {
   "name": "cli-prayer-times",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A command-line tool for displaying prayer times.",
   "module": "index.ts",
   "main": "dist/index.js",
