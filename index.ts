@@ -1,4 +1,4 @@
-#! /usr/bin/env node
+#!/usr/bin/env node
 
 import chalk from "chalk";
 import Table from "cli-table3";
@@ -9,6 +9,7 @@ import os from "os";
 import path from "path";
 import { calculatePrayerTimes } from "zero-deps-prayer-times";
 import type { ExtraInfo, PrayerTimes } from "zero-deps-prayer-times/types";
+import { fetchWithRetry } from "./utils/fetchWithRetry";
 
 interface Coordinates {
   latitude: number;
@@ -60,13 +61,9 @@ const config = {
 };
 
 const geocode = async (cityName: string): Promise<Location> => {
-  const response = await fetch(
+  const response = await fetchWithRetry(
     `https://geocode.xyz/${encodeURIComponent(cityName)}?json=1`
   );
-
-  if (!response.ok) {
-    throw new Error(`Geocoding failed: ${response.status}`);
-  }
 
   const data = (await response.json()) as GeocodingResponse;
 
@@ -101,7 +98,6 @@ const getPrayerTimes = (date: Date, location: Location) => {
   return result.data;
 };
 
-// Time formatting
 const formatTimeLeft = (seconds: number | null): string => {
   if (seconds === null) return "Next day's first prayer";
 
